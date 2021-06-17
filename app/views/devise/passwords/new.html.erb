@@ -1,0 +1,22 @@
+<div class="row wrapper fadeInDown">
+  <div class="col-lg-8 form-control mx-auto" id="formContent">
+  <center class="fadeIn first">
+    <h2>Forgot password?</h2>
+  </center>
+  
+  <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row col-lg-8 mx-auto fadeIn second">
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Reset" %>
+      </div>
+    </div>
+  <% end %>
+    <div id="formFooter" class="row mx-auto fadeIn third" >
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

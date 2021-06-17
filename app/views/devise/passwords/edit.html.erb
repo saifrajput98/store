@@ -1,0 +1,34 @@
+<div class="row wrapper fadeInDown">
+  <div class="col-lg-4 form-control mx-auto" id="formContent">
+  <center class="fadeIn first">
+    <h2>Change your password</h2>
+  </center>
+  <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <%= f.hidden_field :reset_password_token %>
+    <div class="row col-lg-8 mx-auto fadeIn second">
+      <div class="field">
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        New
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        Confirm New
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Change" %>
+      </div>
+    
+    </div>
+  <% end %>
+    <div id="formFooter" class="row mx-auto fadeIn third">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
