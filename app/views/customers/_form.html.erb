@@ -1,0 +1,68 @@
+<%= form_with(model: @customer, local: true) do |form| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation" class="container">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container col-lg-6" style="background-color: silver;border-radius: 50px;">
+    
+    <div class="row">
+      <div class="col-lg-12" style="margin-top:2%">
+        <%= form.label :name %>
+      </div>
+      <div class="col-lg-12">
+        <%= form.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.label :contact %>
+      </div>
+      <div class="col-lg-12">
+        <%= form.text_field :contact1 %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.label :another_contact %>
+      </div>
+      <div class="col-lg-12">
+        <%= form.text_field :contact2 %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.label :email %>
+      </div>
+      <div class="col-lg-12">
+        <%= form.text_field :email %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.label :address %>
+      </div>
+      <div class="col-lg-12">
+        <%= form.text_field :address %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="actions col-lg-12">
+        <%= form.submit %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
