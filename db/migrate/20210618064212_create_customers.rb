@@ -3,11 +3,11 @@
 class CreateCustomers < ActiveRecord::Migration[5.2]
   def change
     create_table :customers do |t|
-      t.string :name
-      t.string :address
-      t.string :contact1
-      t.string :contact2
-      t.string :email
+      t.string :name, null: false
+      t.string :address, null: false
+      t.string :contact1, null: false, unique: true
+      t.string :contact2, unique: true
+      t.string :email, null: false
 
       t.timestamps
     end

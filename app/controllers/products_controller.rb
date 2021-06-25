@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @pagy, @products = pagy(Product.all, items: 4)
   end
 
   # GET /products/1 or /products/1.json

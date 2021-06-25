@@ -1,26 +1,28 @@
-<h1>
-  Customer 
-</h1>
-<p>
-  <b>Name: </b>
-  <%= @customer.name %>
-</p>
-<p>
-  <b>Contact: </b>
-  <%= @customer.contact1 %>
-</p>
-<p>
-  <b>Another Contact: </b>
-  <%= @customer.contact2 %>
-</p>
-<p>
-  <b>Email: </b>
-  <%= @customer.email %>
-</p>
-<p>
-  <b>Address: </b>
-  <%= @customer.address %>
-</p>
-
+<h1>Customer Detail</h1>
+<div class="container">
+  <table class="table table-striped table-hover">
+    <tbody>
+        <tr>
+          <td>Name:</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>Contact:</td>
+          <td><%= @customer.contact1 %></td>
+        </tr>
+        <tr>
+          <td>Another Contact:</td>
+          <td><%= @customer.contact2 %></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><%= @customer.email %></td>
+        </tr>
+          <td>Address:</td>
+          <td><%= @customer.address %></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to "Back", customers_path %>

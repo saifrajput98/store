@@ -2,12 +2,11 @@
 
 Rails.application.routes.draw do
   resources :products
-  get 'customers/index'
-  get 'store/index'
 
   devise_for :users
 
   resources :customers
+  resources :store, only: [:index]
 
   root 'store#index'
 end

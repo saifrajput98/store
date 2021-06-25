@@ -1,7 +1,3 @@
-// Place all the styles related to the Store controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .color{
   background-color: black;
 }
@@ -29,8 +25,6 @@ h2 {
   margin: 40px 8px 10px 8px; 
   color: #cccccc;
 }
-
-
 
 /* STRUCTURE */
 
@@ -68,7 +62,6 @@ h2 {
 }
 
 
-
 /* TABS */
 
 h2.inactive {
@@ -79,7 +72,6 @@ h2.active {
   color: #0d0d0d;
   border-bottom: 2px solid #5fbae9;
 }
-
 
 
 /* FORM TYPOGRAPHY*/
@@ -147,6 +139,27 @@ input[type=text]:placeholder {
   color: #cccccc;
 }
 
+input[type=email] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
 input[type=number] {
   background-color: #f6f6f6;
   border: none;
@@ -168,6 +181,26 @@ input[type=number] {
   border-radius: 5px 5px 5px 5px;
 }
 
+input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
 
 /* ANIMATIONS */
 
@@ -281,4 +314,22 @@ input[type=number] {
 
 #icon {
   width:60%;
+}
+
+.align{
+  text-align: center;
+}
+
+.margin{
+  margin-top:5%;
+}
+
+.form-style{
+  background-color: silver;
+  border-radius: 50px;
+}
+
+.pagy-color{
+  background-color: black;
+  border-color: black;
 }

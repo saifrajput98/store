@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  # validate_presence_of :title
   validates :title, :description, :unit_price, :quantity, :product_code, presence: true
   validates :title, uniqueness: true
   validates :title, format: { with: /[a-zA-Z]/, message: 'only allows letters' }
