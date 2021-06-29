@@ -1,52 +1,62 @@
-<div class="row wrapper fadeInDown">
-  <div class="col-lg-8 form-control mx-auto" id="formContent">
-    <center>
-      <h2 class="fadeIn first margin">Edit <%= resource_name.to_s.humanize %></h2>
-    </center>
-
-  <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="middle-box animated fadeInDown">
+  <div class="ibox">
+    <div class="ibox-title">
+      <h5 class="text-center">Edit Customer</h5>
+      <div class="ibox-tools">
+        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </div>
+    </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="row col-lg-8 mx-auto fadeIn second">
+    <div class="ibox-content">
+    <table class="container col-lg-12 form-style form-group">
       <div class="field">
-        <%= f.text_field :first_name, autofocus: true %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
       </div>
       
-      <div class="field">
-        <%= f.text_field :last_name %>
+      <div class="field margin">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "form-control" %>
       </div>
 
-      <div class="field">
-        <%= f.email_field :email %>
+      <div class="field margin">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="field">
-        <%= f.password_field :password, autocomplete: "new-password" %>    
+      <div class="field margin">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
 
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="field margin">
+        <%= f.label :Confirm_password %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 
-      <div class="field">
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <div class="field margin">
+        <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Update" %>
+      <div class="actions margin">
+        <%= f.submit "Update", class: "btn btn-primary"  %>
       </div>
-    </div>
+  </table>
   <% end %>
     <div id="formFooter" class="row mx-auto fadeIn third">
       <h4>Delete account</h4>
 
-      <p>Are You Sure? <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-    <%= link_to "Back", :back %>
-    
+      <p>Are You Sure? <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-white" %></p>
     </div>
+    <%= link_to "Back", :back %>
+    </div>
+    </div>
+  </div>
   </div>
 </div>

@@ -10,21 +10,21 @@ gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.6'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 5.0.1'
-gem 'bootstrap_form', '~> 4.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise'
 gem 'email_validator'
 gem 'font-awesome-rails'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'pagy', '~> 3.5'
+gem 'pg'
 gem 'rubocop', '~> 1.17', require: false
 gem 'rubocop-rails'
 gem 'telephone_number'
-gem 'pg'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

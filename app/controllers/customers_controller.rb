@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class CustomersController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
   before_action :set_customer, only: %i[show edit update destroy]
 
   def index
-    @pagy, @customers = pagy(Customer.all, items: 4)
+    @customers = Customer.search(params[:search])
   end
 
   def show; end
@@ -20,7 +19,7 @@ class CustomersController < ApplicationController
     if @customer.save
       redirect_to @customer, notice: 'Customer created successfully'
     else
-      render 'edit'
+      render 'new'
     end
   end
 
@@ -37,7 +36,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
 
-    redirect_to @customer, notice: 'Customer updated successfully'
+    redirect_to @customer, notice: 'Customer destroyed successfully'
   end
 
   private

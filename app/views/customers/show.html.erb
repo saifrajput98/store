@@ -1,28 +1,53 @@
-<h1>Customer Detail</h1>
-<div class="container">
-  <table class="table table-striped table-hover">
-    <tbody>
-        <tr>
-          <td>Name:</td>
-          <td><%= @customer.name %></td>
-        </tr>
-        <tr>
-          <td>Contact:</td>
-          <td><%= @customer.contact1 %></td>
-        </tr>
-        <tr>
-          <td>Another Contact:</td>
-          <td><%= @customer.contact2 %></td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td><%= @customer.email %></td>
-        </tr>
-          <td>Address:</td>
-          <td><%= @customer.address %></td>
-        </tr>
-    </tbody>
-  </table>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Customers</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= customers_path %>">Home</a>
+      </li>
+      <li class="active">
+        <strong>
+          <a href="<%= customer_path %>">Details</a>
+        </strong>
+      </li>
+    </ol>
+  </div>
 </div>
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to "Back", customers_path %>
+
+<div class="col-lg-12 animated fadeInDown margin">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Customer Details</h5>
+      <div class="ibox-tools">
+        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </div>
+    </div>
+
+    <div class="ibox-content">
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <td>Name:</td>
+            <td><%= @customer.name %></td>
+          </tr>
+          <tr>
+            <td>Contact:</td>
+            <td><%= @customer.contact1 %></td>
+          </tr>
+          <tr>
+            <td>Another Contact:</td>
+            <td><%= @customer.contact2 %></td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td><%= @customer.email %></td>
+          </tr>
+            <td>Address:</td>
+            <td><%= @customer.address %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

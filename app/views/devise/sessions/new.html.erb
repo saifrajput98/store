@@ -1,34 +1,29 @@
-<div class="row wrapper fadeInDown">
-  <div class="col-lg-8 mx-auto" id="formContent">
-    <center>
-      <h2 class="fadeIn first margin">LOG IN</h2>
-    </center>
-  <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="row col-lg-8 mx-auto fadeIn second">
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="ibox middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <h3 class="logo-name">Store</h3>
+  </div>
+  <div class="ibox-title">
+    <h3>Welcome to Store</h3>
+  </div>
+  <div class="ibox-content">
+    <p>LOG IN.</p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.label :Enter_mail %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'%>
       </div>
-
-      <div class="field">
-      <%= f.password_field :password, autocomplete: "current-password", :class => 'border'%>
+      <div class="form-group">
+        <%= f.label :Enter_password %>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
       </div>
-
-      <% if devise_mapping.rememberable? %>
-      
-      <div class="field">
-        <%= f.check_box :remember_me %>
+      <%= f.submit "Login", class: "btn btn-primary block full-width m-b" %>
+      <div id="formFooter" class="row mx-auto fadeIn third">
+        <%= render "devise/shared/links" %>
       </div>
     <% end %>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  </div>
-  <% end %>
-    <div id="formFooter" class="row mx-auto fadeIn third">
-      <%= render "devise/shared/links" %>
-    </div>
   </div>
 </div>
+
+
 
 

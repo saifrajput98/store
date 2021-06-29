@@ -1,29 +1,66 @@
-<h1>Product</h1>
-<div class="container">
-  <table class="table table-striped table-hover">
-    <tbody>
-        <tr>
-          <td>TItle:</td>
-          <td><%= @product.title %></td>
-        </tr>
-        <tr>
-          <td>Description:</td>
-          <td><%= @product.description %></td>
-        </tr>
-        <tr>
-          <td>Unit Price(Rs.):</td>
-          <td><%= @product.unit_price %></td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td><%= @product.quantity %></td>
-        </tr>
-          <td>Address:</td>
-          <td><%= @product.product_code %></td>
-        </tr>
-    </tbody>
-  </table>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Products</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= products_path %>">Home</a>
+      </li>
+      <li class="active">
+        <strong>
+          <a href="<%= product_path %>">Details</a>
+        </strong>
+      </li>
+    </ol>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="col-lg-12 animated fadeInDown margin">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Product Details</h5>
+      <div class="ibox-tools">
+        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox product-detail">
+          <div class="ibox-content">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="product-images">
+                  <div>
+                    <div class="image-imitation">
+                        [IMAGE 1]
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <h2 class="font-bold m-b-xs">
+                  <%= @product.title %>
+                </h2>
+                <div class="m-t-md">
+                  <h2 class="product-main-price">Rs.<%= @product.unit_price %> <small class="text-muted">Exclude Tax</small> </h2>
+                </div>
+                <hr>
+                <h4>Product description</h4>
+                <div class="small text-muted">
+                  <%= @product.description %>
+                </div>
+                <dl class="small m-t-md">
+                  <dt>In Stock: <%= @product.quantity %></dt>
+                  <dt>Product Code: <%= @product.product_code %> </dt>
+                </dl>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
