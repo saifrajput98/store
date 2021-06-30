@@ -35,7 +35,7 @@
       <h5>List of Products</h5>
 
       <div class="ibox-tools">
-        <%= link_to fa_icon("plus"), new_product_path, class: "fa-2x" %>
+        <%= link_to fa_icon("plus"), new_product_path, class: "btn btn-primary btn-xs fa-xs"%>
         <a class="collapse-link"><i class="fa fa-chevron-up fa-2x"></i></a>
       </div>
     </div>
@@ -57,8 +57,8 @@
               <td class="hide-small-screen"><%= product.description %></td>
               <td><%= product.product_code %></td>
               <td>
-                <%= link_to fa_icon("info-circle"), product, class: "icon-margin" %>
-                <%= link_to fa_icon("edit"), edit_product_path(product), class: "icon-margin" %>
+                <%= link_to fa_icon("info-circle"), product, class: "icon-margin" %>|
+                <%= link_to fa_icon("edit"), edit_product_path(product), class: "icon-margin" %>|
                 <%= link_to fa_icon("trash"), product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>

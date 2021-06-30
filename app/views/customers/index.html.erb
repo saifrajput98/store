@@ -34,8 +34,8 @@
     <div class="ibox-title">
     <h5>List of Customers</h5>
       <div class="ibox-tools">
-        <%= link_to fa_icon("plus"), new_customer_path, class: "fa-2x" %>
-        <a class="collapse-link"><i class="fa fa-chevron-up fa-2x"></i></a>
+        <%= link_to fa_icon("plus"), new_customer_path, class: "btn btn-primary btn-xs fa-xs"%>
+        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
       </div>
     </div>
     <div class="ibox-content">
@@ -53,8 +53,8 @@
             <td><%= customer.name %></td>
             <td><%= customer.contact1 %></td>
             <td>
-              <%= link_to fa_icon("info-circle"), customer, class: "icon-margin" %>
-              <%= link_to fa_icon("edit"), edit_customer_path(customer), class: "icon-margin"%>
+              <%= link_to fa_icon("info-circle"), customer, class: "icon-margin" %>|
+              <%= link_to fa_icon("edit"), edit_customer_path(customer), class: "icon-margin"%>|
               <%= link_to fa_icon("trash"), customer, method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>

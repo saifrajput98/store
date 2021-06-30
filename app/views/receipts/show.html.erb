@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Net amt:</strong>
+  <%= @receipt.net_amt %>
+</p>
+
+<p>
+  <strong>Gross amt:</strong>
+  <%= @receipt.gross_amt %>
+</p>
+
+<p>
+  <strong>Discount amt:</strong>
+  <%= @receipt.discount_amt %>
+</p>
+
+<p>
+  <strong>Receipt type:</strong>
+  <%= @receipt.receipt_type %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @receipt.customer.name%>
+</p>
+
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back', receipts_path %>

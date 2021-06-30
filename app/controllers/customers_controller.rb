@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to @customer, notice: 'Customer created successfully'
+      redirect_to customers_path, notice: 'Customer created successfully'
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to @customer, notice: 'Customer updated successfully'
+      redirect_to customers_path, notice: 'Customer updated successfully'
     else
       render 'edit'
     end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  net_amt: 
+  gross_amt: 
+  discount_amt: 
+  receipt_type: MyString
+  customer: one
+
+two:
+  net_amt: 
+  gross_amt: 
+  discount_amt: 
+  receipt_type: MyString
+  customer: two

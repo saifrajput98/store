@@ -1,0 +1,83 @@
+<%= form_for (@receipt) do |f| %>
+  <% if receipt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+
+      <ul>
+      <% receipt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="container col-lg-12 form-style form-group margin">
+    <div class="ibox-content">
+
+      <div class="row">
+        <div class="col-lg-12 margin">
+          <%= f.label :customer_id %>
+        </div>
+        <div class="col-lg-12">
+          <%= f.text_field :customer_id, class: "form-control" %>
+        </div>
+      </div>
+      
+      <h2>Line Items</h2>
+      <div>
+        <%= f.fields_for :line_items do |line_item| %>
+          <%= render 'line_item_fields', f: line_item %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'add line_item', f, :line_items, class: "btn btn-primary" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 margin">
+          <%= f.label :gross_amt %>
+        </div>
+        <div class="col-lg-12">
+          <%= f.text_field :gross_amt, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 margin">
+          <%= f.label :discount_amt %>
+        </div>
+        <div class="col-lg-12">
+          <%= f.text_field :discount_amt, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 margin">
+          <%= f.label :net_amt %>
+        </div>
+        <div class="col-lg-12">
+          <%= f.text_field :net_amt, class: "form-control"%>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 margin">
+          <%= f.label :receipt_type %>
+        </div>
+        <div class="col-lg-12">
+          <%= f.text_field :receipt_type, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row margin">
+        <div class="actions middle-box col-lg-6">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+      </div>
+    </table>
+  </div>
+
+<% end %>
+
+
+

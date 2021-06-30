@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 
+  discount: 
+  product: one
+  receipt: one
+
+two:
+  price: 
+  discount: 
+  product: two
+  receipt: two

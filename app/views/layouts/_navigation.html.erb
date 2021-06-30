@@ -14,31 +14,31 @@
               </span>
             </span>
           </a>
-          <ul class="dropdown-menu animated fadeInRight m-t-xs">
-            <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
-            <li class="divider"></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
-            </ul>
+        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+          <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+          <li class="divider"></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+          </ul>
         </div>
         
         <div class="logo-element">
-            Store
+          Store
         </div>
       </li>
       <li class="<%= is_active_controller('dashboards') %>">
-          <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+        <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
       </li>
       <li class="<%= is_active_controller('pages') %>">
-          <a href='<%= customers_path%>'><i class="fa fa-user"></i><span class="nav-label">Customers</span></a>
+        <a href='<%= customers_path%>'><i class="fa fa-user"></i><span class="nav-label">Customers</span></a>
       </li>
       <li class="<%= is_active_controller('pages') %>">
-          <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Projects</span></span></a>
+        <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Projects</span></span></a>
       </li>
        <li class="<%= is_active_controller('pages') %>">
-          <a href='<%= products_path%>'><i class="fa fa-bars"></i><span class="nav-label">Products</span></a>
+        <a href='<%= products_path%>'><i class="fa fa-bars"></i><span class="nav-label">Products</span></a>
       </li>
       <li class="<%= is_active_controller('commerce') %>">
-          <a href="#"><i class="fa fa-file"></i> <span class="nav-label">Invoice</span></a>
+        <a href='<%= receipts_path%>'><i class="fa fa-file"></i><span class="nav-label">Receipts</span></a>
       </li>
     </ul>
 

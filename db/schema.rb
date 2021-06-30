@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_623_081_359) do
+ActiveRecord::Schema.define(version: 20_210_630_122_304) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20_210_623_081_359) do
     t.datetime 'updated_at', null: false
   end
 
+  create_table 'line_items', force: :cascade do |t|
+    t.string 'quantity'
+    t.decimal 'price'
+    t.decimal 'discount'
+    t.bigint 'product_id'
+    t.bigint 'receipt_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['product_id'], name: 'index_line_items_on_product_id'
+    t.index ['receipt_id'], name: 'index_line_items_on_receipt_id'
+  end
+
   create_table 'products', force: :cascade do |t|
     t.string 'title', null: false
     t.string 'description', null: false
@@ -34,6 +46,17 @@ ActiveRecord::Schema.define(version: 20_210_623_081_359) do
     t.string 'product_code', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+  end
+
+  create_table 'receipts', force: :cascade do |t|
+    t.decimal 'net_amt'
+    t.decimal 'gross_amt'
+    t.decimal 'discount_amt'
+    t.string 'receipt_type'
+    t.bigint 'customer_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['customer_id'], name: 'index_receipts_on_customer_id'
   end
 
   create_table 'users', force: :cascade do |t|
@@ -52,4 +75,8 @@ ActiveRecord::Schema.define(version: 20_210_623_081_359) do
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
+
+  add_foreign_key 'line_items', 'products'
+  add_foreign_key 'line_items', 'receipts'
+  add_foreign_key 'receipts', 'customers'
 end
