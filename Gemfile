@@ -25,7 +25,11 @@ gem 'pagy', '~> 3.5'
 gem 'pg'
 gem 'rubocop', '~> 1.17', require: false
 gem 'rubocop-rails'
+gem 'select2-rails'
 gem 'telephone_number'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

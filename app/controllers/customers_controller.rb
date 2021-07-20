@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: %i[show edit update destroy]
 
   def index
-    @customers = Customer.search(params[:search])
+    @pagy, @customers = pagy(Customer.search(params[:term]), items: 5)
   end
 
   def show; end
@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to customers_path, notice: 'Customer created successfully'
+      redirect_to customers_path, notice: 'Customer created successfully.'
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to customers_path, notice: 'Customer updated successfully'
+      redirect_to customers_path, notice: 'Customer updated successfully.'
     else
       render 'edit'
     end
@@ -36,13 +36,14 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
 
-    redirect_to @customer, notice: 'Customer destroyed successfully'
+    redirect_to @customer, notice: 'Customer destroyed successfully.'
   end
 
   private
 
   def set_customer
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find_by(params[:id])
+    return redirect_to customers_path, notice: 'Record not found.' unless @customer.present?
   end
 
   def customer_params

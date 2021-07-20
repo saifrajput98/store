@@ -1,41 +1,53 @@
-<div class='nested-fields form-group'>
-  <div class='nested-fields form-group'>
-    <div class="row">
-      <div class="col-lg-12 margin">
+<div class='nested-fields form-group lineItemParent'>
+  <%= f.hidden_field :id, value: f.object.id %>
+  <div class="row">
+    <div class="col-lg-6 margin">
+      <div>
         <%= f.label :product_id %>
       </div>
-      <div class="col-lg-12">
-        <%= f.text_field :product_id, class: "form-control" %>
+      <div>
+        <%= f.select "product_id", options_for_select(product_options), {include_blank: 'Select'}, {class: 'form-control unit-price product totalProductPrice'} %>
       </div>
     </div>
+    <div class="col-lg-6 margin">
+      <div>
+        <%= f.label :product_price %>
+      </div>
+      <div>
+        <%= text_field_tag :unit_price,"",class: "unitprice form-control" %>
+      </div>
+    </div>
+  </div>
 
-    <div class="row">
-      <div class="col-lg-12 margin">
+  <div class="row">
+    <div class="col-lg-6 margin">
+      <div>
         <%= f.label :quantity %>
       </div>
-      <div class="col-lg-12">
-        <%= f.text_field :quantity, class: "form-control" %>
+      <div>
+        <%= f.number_field(:quantity, min:0, class: 'form-control quantity', id: 'quantity') %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-12 margin">
+    <div class="col-lg-6 margin">
+      <div>
         <%= f.label :discount %>
       </div>
-      <div class="col-lg-12">
-        <%= f.text_field :discount, class: "form-control" %>
+      <div>
+        <%= f.text_field :discount, class: "form-control discount totalProductPrice", id: 'discount' %>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-lg-12 margin">
-        <%= f.label :total_price %>
-      </div>
-      <div class="col-lg-12">
-        <%= f.text_field :price, class: "form-control" %>
-      </div>
-    </div>
-    
   </div>
-  <%= link_to_remove_association "remove", f , class: "btn btn-primary btn-xs"%>
+
+  <div class="row">
+    <div class="col-lg-12 margin">
+      <%= f.label :total_price %>
+    </div>
+    <div class="col-lg-12">
+      <%= f.text_field :price, class: "form-control totalprice", id: 'totalprice', readonly: true %>
+    </div>
+  </div>
+  <%= link_to_remove_association "remove", f , class: "btn btn-primary btn-xs margin" %>
+  <hr class="hr-style">
 </div>
+

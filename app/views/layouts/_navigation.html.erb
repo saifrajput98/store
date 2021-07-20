@@ -14,10 +14,10 @@
               </span>
             </span>
           </a>
-        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-          <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
-          <li class="divider"></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+            <li><a href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+            <li class="divider"></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
           </ul>
         </div>
         
@@ -38,7 +38,10 @@
         <a href='<%= products_path%>'><i class="fa fa-bars"></i><span class="nav-label">Products</span></a>
       </li>
       <li class="<%= is_active_controller('commerce') %>">
-        <a href='<%= receipts_path%>'><i class="fa fa-file"></i><span class="nav-label">Receipts</span></a>
+        <a href='<%= invoices_path %>'><i class="fa fa-file"></i><span class="nav-label">Invoice</span></a>
+      </li>
+      <li class="<%= is_active_controller('commerce') %>">
+        <a href='<%= quotations_path %>'><i class="fa fa-file"></i><span class="nav-label">Quotation</span></a>
       </li>
     </ul>
 

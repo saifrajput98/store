@@ -16,68 +16,71 @@
 
       <div class="row">
         <div class="col-lg-12 margin">
-          <%= f.label :customer_id %>
+          <%= f.label :customer_name %>
         </div>
         <div class="col-lg-12">
-          <%= f.text_field :customer_id, class: "form-control" %>
+          <%= f.select "customer_id",options_from_collection_for_select(Customer.all, 'id', 'name'), {include_blank: 'Select'}, {class: 'form-control'} %>
         </div>
       </div>
       
-      <h2>Line Items</h2>
-      <div>
+      <h2><b>Line Items</b></h2>
+      <div class='line-items'>
         <%= f.fields_for :line_items do |line_item| %>
           <%= render 'line_item_fields', f: line_item %>
         <% end %>
         <div class='links'>
-          <%= link_to_add_association 'add line_item', f, :line_items, class: "btn btn-primary" %>
+          <%= link_to_add_association 'add line item', f, :line_items, class: "btn btn-primary" %>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 margin">
+          <div>
+          <%= f.label :gross_amount %>
+          </div>
+          <div>
+            <%= f.text_field :gross_amt, class: "form-control gross_amount" %>
+          </div>
+        </div>
+
+        <div class="col-lg-6 margin">
+          <div>
+            <%= f.label :discount_amount %>
+          </div>
+          <div>
+            <%= f.text_field :discount_amt, class: "form-control discount_amount" %>
+          </div>
+        </div>
+
       </div>
 
       <div class="row">
-        <div class="col-lg-12 margin">
-          <%= f.label :gross_amt %>
+        <div class="col-lg-6 margin">
+          <div>
+            <%= f.label :net_amount %>
+          </div>
+          <div>
+            <%= f.text_field :net_amt, class: "form-control net_amount"%>
+          </div>
         </div>
-        <div class="col-lg-12">
-          <%= f.text_field :gross_amt, class: "form-control" %>
+
+        <div class="col-lg-6 margin">
+          <div>
+            <%= f.label :receipt_type %>
+          </div>
+          <div>
+            <%= f.select(:receipt_type, [['Invoice', 'invoice'], ['Quotation', 'quotation']], {include_blank: 'Select'}, {class: 'form-control'}) %>
+          </div>
         </div>
       </div>
-
       <div class="row">
-        <div class="col-lg-12 margin">
-          <%= f.label :discount_amt %>
-        </div>
-        <div class="col-lg-12">
-          <%= f.text_field :discount_amt, class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 margin">
-          <%= f.label :net_amt %>
-        </div>
-        <div class="col-lg-12">
-          <%= f.text_field :net_amt, class: "form-control"%>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 margin">
-          <%= f.label :receipt_type %>
-        </div>
-        <div class="col-lg-12">
-          <%= f.text_field :receipt_type, class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="row margin">
         <div class="actions middle-box col-lg-6">
-          <%= f.submit class: "btn btn-primary" %>
+          <div>
+            <%= f.submit class: "btn btn-primary" %>
+          </div>
+        </div>
         </div>
       </div>
     </table>
   </div>
-
 <% end %>
-
-
 

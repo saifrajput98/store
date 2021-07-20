@@ -6,5 +6,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, presence: true, format: { with: /[a-zA-Z]/, message: 'only letters are allowed' }
+  validates :first_name, :last_name, presence: true, format: { with: /[a-zA-Z]/, message: 'only letters are allowed.' }
 end

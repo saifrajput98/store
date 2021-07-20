@@ -1,15 +1,4 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-lg-10">
-    <h2>Receipts</h2>
-    <ol class="breadcrumb">
-      <li class="active">
-        <strong>
-          <a href="<%= receipts_path %>">Home</a>
-        </strong>
-      </li>
-    </ol>
-  </div>
-</div>
+<%= render 'header', type: params[:type] %>
 
 <div class="ibox-content m-b-sm border-bottom margin">
   <div class="row">
@@ -19,7 +8,7 @@
           <table>
             <label class="control-label">Customer Name</label>
             <tr>
-              <td><%= text_field_tag :search, params[:search], placeholder: 'Search here',class: "form-control" %></td>
+              <td><%= text_field_tag :term, params[:type], placeholder: 'Search here',class: "form-control" %></td>
               <td><%= submit_tag :search, class: "btn btn-primary"%></td>
             </tr>
           </table>
@@ -32,20 +21,21 @@
 <div class="col-lg-16 animated fadeInDown margin">
   <div class="ibox float-e-margins">
     <div class="ibox-title">
-    <h5>List of Receipts</h5>
+      <h5>List of Receipts</h5>
       <div class="ibox-tools">
         <%= link_to fa_icon("plus"), new_receipt_path, class: "btn btn-primary btn-xs fa-xs" %>
         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
       </div>
     </div>
+
     <div class="ibox-content">
       <table class="table table-hover table-striped">
         <thead>
           <tr>
             <th>Customer</th>
-            <th class="hide-small-screen">Gross amt</th>
-            <th class="hide-small-screen">Discount amt</th>
-            <th class="hide-small-screen">Net amt</th>
+            <th class="hide-small-screen">Gross amount</th>
+            <th class="hide-small-screen">Discount amount</th>
+            <th class="hide-small-screen">Net amount</th>
             <th>Receipt type</th>
             <th colspan="3">Actions</th>
           </tr>
@@ -71,4 +61,3 @@
     </div>
   </div>
 </div>
-

@@ -1,16 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>Users</h2>
-    <ol class="breadcrumb">
-      <li>
-        <a href="">Dashboard</a>
-      </li>
-      <li class="active">
-        <strong>
-          <a href="<%= edit_user_registration_path %>">Edit Profile</a>
-        </strong>
-      </li>
-    </ol>
+    <h2><a href="<%= edit_user_registration_path %>" class= "header" >Users</a></h2>
   </div>
 </div>
 
@@ -22,57 +12,57 @@
         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
       </div>
     </div>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="ibox-content">
-    <table class="container col-lg-12 form-style form-group">
-      <div class="field">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
-      </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="ibox-content">
+        <table class="container col-lg-12 form-style form-group">
+          <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+          </div>
       
-      <div class="field margin">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: "form-control" %>
+          <div class="field margin">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+
+          <div class="field margin">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field margin">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="field margin">
+            <%= f.label :Confirm_password %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="field margin">
+            <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i>
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+
+          <div class="actions margin">
+            <%= f.submit "Update", class: "btn btn-primary"  %>
+          </div>
+
+          <div>
+            <h4>Delete account</h4>
+
+            <p>Are You Sure?</p>
+             <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-white" %>
+          </div>
+        </table>
       </div>
-
-      <div class="field margin">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control" %>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="field margin">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="field margin">
-        <%= f.label :Confirm_password %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="field margin">
-        <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i>
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-      </div>
-
-      <div class="actions margin">
-        <%= f.submit "Update", class: "btn btn-primary"  %>
-      </div>
-  </table>
-  <% end %>
-    <div id="formFooter" class="row mx-auto fadeIn third">
-      <h4>Delete account</h4>
-
-      <p>Are You Sure? <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-white" %></p>
+    <% end %>
     </div>
-    <%= link_to "Back", :back %>
-    </div>
-    </div>
-  </div>
   </div>
 </div>

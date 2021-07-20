@@ -1,29 +1,99 @@
-<p id="notice"><%= notice %></p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-8">
+    <h2><%= @receipt.receipt_type.humanize %></h2>
+  </div>
 
-<p>
-  <strong>Net amt:</strong>
-  <%= @receipt.net_amt %>
-</p>
 
-<p>
-  <strong>Gross amt:</strong>
-  <%= @receipt.gross_amt %>
-</p>
+  <div class="col-lg-4">
+    <div class="title-action">
+      <%= link_to "Print Invoice", receipt_path(@receipt, format: :pdf), target: "_blank",class: "btn btn-primary fa fa-print btn-lg" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Discount amt:</strong>
-  <%= @receipt.discount_amt %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+      <div class="wrapper wrapper-content animated fadeInRight">
+          <div class="ibox-content p-xl">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h5>From:</h5>
+                      <address>
+                          <strong><%= COMPANY_NAME %></strong><br>
+                          <%= COMPANY_ADDRESS %><br>
+                          <%= COMPANY_CONTACT %>
+                      </address>
+                  </div>
 
-<p>
-  <strong>Receipt type:</strong>
-  <%= @receipt.receipt_type %>
-</p>
+                  <div class="col-sm-6 text-right">
+                      <h4>Invoice No.</h4>
+                      <h4 class="text-navy"><%= rand(9999999999) %></h4>
+                      <span>To:</span>
+                      <address>
+                          <strong><%= @receipt.customer.name %></strong><br>
+                          <%= @receipt.customer.address %><br>
+                        <%= @receipt.customer.contact1 %>
+                      </address>
+                      <p>
+                          <span><strong>Invoice Date: </strong><%= @receipt.created_at.to_date %></span><br />
+                      </p>
+                  </div>
+              </div>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @receipt.customer.name%>
-</p>
+              <div class="table-responsive m-t">
+                  <table class="table invoice-table">
+                      <thead>
+                      <tr>
+                          <th>Item List</th>
+                          <th>Quantity</th>
+                          <th>Unit Price</th>
+                          <th>Discount</th>
+                          <th>Total Price</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <% @receipt.line_items.each do |line_item| %>
+                          <tr>
+                              <td>
+                                  <div><strong><%= line_item.product.title %></strong></div>
+                                  <small><%= line_item.product.description %>.</small>
+                              </td>
+                              <td><%= line_item.quantity %></td>
+                              <td>Rs.<%= line_item.product.unit_price %></td>
+                              <td>Rs.<%= line_item.discount %></td>
+                              <td>Rs.<%= line_item.price %></td>
+                          </tr>    
+                        <% end %>
+                      </tbody>
+                  </table>
+              </div><!-- /table-responsive -->
 
-<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
-<%= link_to 'Back', receipts_path %>
+              <table class="table invoice-total">
+                  <tbody>
+                  <tr>
+                      <td><strong>Sub Total :</strong></td>
+                      <td>Rs.<%= @receipt.gross_amt %></td>
+                  </tr>
+                  <tr>
+                      <td><strong>Discount amount :</strong></td>
+                      <td>Rs.<%= @receipt.discount_amt %></td>
+                  </tr>
+                  <tr>
+                      <td><strong> Net TOTAL :</strong></td>
+                      <td>Rs,<%= @receipt.net_amt %></td>
+                  </tr>
+                  </tbody>
+              </table>
+              <div class="text-right">
+                  <%= link_to 'Send Mail', send_mail_path, class: 'btn btn-primary fa fa-dollar btn-lg'%>
+              </div>
+
+              <div class="well m-t">
+                  <strong>Comments</strong>
+                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

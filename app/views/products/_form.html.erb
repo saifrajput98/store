@@ -33,6 +33,16 @@
 
       <div class="row">
         <div class="col-lg-12 margin">
+          <%= form.label :image %>
+        </div>
+
+        <div class="col-lg-12">
+          <%= form.file_field :image %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 margin">
           <%= form.label :unit_price %>
         </div>
 
@@ -47,7 +57,7 @@
         </div>
 
         <div class="col-lg-12">
-          <%= form.number_field(:quantity, in: 0..10000, class: 'form-control')%>
+          <%= form.number_field(:quantity, min:0 , class: 'form-control')%>
         </div>
       </div>
 

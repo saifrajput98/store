@@ -9,11 +9,9 @@ class Customer < ApplicationRecord
                                                                }, types: %i[mobile], message: 'Contact should contain 11 digits' }
   validates :email, email: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
-  def self.search(search)
-    if search
-      where(['lower(name) ILIKE ?', "%#{search.downcase}%"])
-    else
-      all
-    end
+  def self.search(term)
+    customers = all
+    customers = customers.where('lower(name) ILIKE ?',"%#{term}%") if term&.downcase.present?
+    customers
   end
 end
