@@ -33,8 +33,8 @@ class Receipt < ApplicationRecord
   def quantity_topup
     if self.invoice?
       self.line_items.each do |line_item|
-        quant = line_item.product.quantity.to_i - lineItem.quantity.to_i
-        product.update(quantity: quant)
+        quant = line_item.product.quantity.to_i - line_item.quantity.to_i
+        line_item.product.update(quantity: quant)
       end
     end
   end

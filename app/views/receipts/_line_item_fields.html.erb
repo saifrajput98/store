@@ -14,7 +14,7 @@
         <%= f.label :product_price %>
       </div>
       <div>
-        <%= text_field_tag :unit_price,"",class: "unitprice form-control" %>
+        <%= text_field_tag :unit_price,"", class: "unitprice form-control" %>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
         <%= f.label :quantity %>
       </div>
       <div>
-        <%= f.number_field(:quantity, min:0, class: 'form-control quantity', id: 'quantity') %>
+        <%= f.number_field(:quantity, min:0, class: 'form-control quantity totalProductPrice', id: 'quantity') %>
       </div>
     </div>
 

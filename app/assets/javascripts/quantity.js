@@ -12,6 +12,9 @@ $(document).ready(function(){
       discount = parentItem.find(".discount").val();
       // total_price = parentItem.find(".totalprice");
       discount_amount = (quantity * price) * (discount/100)
+
+      console.log(price)
+
       if (quantity > 0 ) {
 
       var amount = (parseInt(quantity) * parseFloat(price) - discount_amount);
@@ -48,23 +51,25 @@ $(document).ready(function(){
       
       $(".gross_amount").val(gross_amount);
 
-      $(".unitprice").val(price);
+      // $(".unitprice").val();
+
+      parentItem.find('.unitprice').val(price)
+
 
       for (var i = 0; i < prices.length; i++) {
-        console.log(quantities)
-        console.log(prices)
         // console.log(t_discount)
       total_discount_amount += (parseInt(quantities[i]) * parseFloat(prices[i])) * parseFloat(discounts[i]/100)
       }
       $(".discount_amount").val(total_discount_amount);
-      console.log(total_discount_amount)
+
+
        var net_amount = gross_amount - total_discount_amount;
        $(".net_amount").val(net_amount);
       }
     });
 
-    $('.totalprice').on('change',function(){
+    // $('.totalprice').on('change',function(){
 
-    });
+    // });
   });
 });

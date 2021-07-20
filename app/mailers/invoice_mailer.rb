@@ -7,6 +7,6 @@ class InvoiceMailer < ApplicationMailer
     )
 
     attachments["Receipt id #{receipt.id}.pdf"] = pdf
-    mail(to: 'saif@gmail.com')
+    mail(to: receipt.customer.email)
   end
 end

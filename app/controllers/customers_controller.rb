@@ -42,8 +42,8 @@ class CustomersController < ApplicationController
   private
 
   def set_customer
-    @customer = Customer.find_by(params[:id])
-    return redirect_to customers_path, notice: 'Record not found.' unless @customer.present?
+    @customer = Customer.find_by( id: params[:id])
+    redirect_to customers_path, notice: 'Record not found.' unless @customer.present?
   end
 
   def customer_params

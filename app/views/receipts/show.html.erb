@@ -47,7 +47,7 @@
                           <th>Item List</th>
                           <th>Quantity</th>
                           <th>Unit Price</th>
-                          <th>Discount</th>
+                          <th>Discount (%)</th>
                           <th>Total Price</th>
                       </tr>
                       </thead>
@@ -60,7 +60,7 @@
                               </td>
                               <td><%= line_item.quantity %></td>
                               <td>Rs.<%= line_item.product.unit_price %></td>
-                              <td>Rs.<%= line_item.discount %></td>
+                              <td><%= line_item.discount %>%</td>
                               <td>Rs.<%= line_item.price %></td>
                           </tr>    
                         <% end %>

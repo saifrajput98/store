@@ -6,7 +6,6 @@
       <div class="form-group">
         <%= form_tag receipts_path, method: 'get' do %>
           <table>
-            <label class="control-label">Customer Name</label>
             <tr>
               <td><%= text_field_tag :term, params[:type], placeholder: 'Search here',class: "form-control" %></td>
               <td><%= submit_tag :search, class: "btn btn-primary"%></td>
